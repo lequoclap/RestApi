@@ -6,6 +6,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -26,10 +27,10 @@ import java.util.ArrayList;
  */
 public class RestApi {
 
-    final public static int MODULE_GET = 1;
-    final public static int MODULE_POST = 2;
-    final public static int MODULE_PUT = 3;
-    final public static int MODULE_DELETE = 4;
+    final public static int METHOD_GET = 1;
+    final public static int METHOD_POST = 2;
+    final public static int METHOD_PUT = 3;
+    final public static int METHOD_DELETE = 4;
 
     final public static String  DOMAIN_NAME = "127.0.0.1";
 
@@ -60,18 +61,18 @@ public class RestApi {
 
         switch (method) {
 
-            case MODULE_GET:
+            case METHOD_GET:
                 onGet();
                 break;
 
-            case MODULE_POST:
+            case METHOD_POST:
                 onPost();
                 break;
 
-            case MODULE_PUT:
+            case METHOD_PUT:
                 onPut();
                 break;
-            case MODULE_DELETE:
+            case METHOD_DELETE:
                 onDelete();
                 break;
 
@@ -124,6 +125,16 @@ public class RestApi {
 
 
     public  void onDelete() {
+
+        HttpDelete request = new HttpDelete(this.URL);
+
+        //adding params to header
+        for(NameValuePair h : headers ){
+            request.addHeader(h.getName(),h.getValue());
+        }
+
+        executeRequest(request,URL);
+
 
     }
 
