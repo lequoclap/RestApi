@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -49,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    public void verifyEmail() {
+    public void verifyEmail(View view) {
 
         EditText emailEditText = (EditText) findViewById(R.id.email_address);
         String email = emailEditText.getText().toString();
