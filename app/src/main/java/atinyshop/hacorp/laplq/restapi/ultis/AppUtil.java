@@ -23,7 +23,7 @@ public class AppUtil {
 //    public static class Url extends UtilUrl {}
 
     // HTTP通信関連
-//    public static class Http extends UtilHttp {}
+    public static class Http extends UtilHttp {}
 
     // その他
     public static class Misc extends UtilMisc {}

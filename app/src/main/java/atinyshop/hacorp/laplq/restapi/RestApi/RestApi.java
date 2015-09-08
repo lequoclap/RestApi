@@ -1,5 +1,7 @@
 package atinyshop.hacorp.laplq.restapi.RestApi;
 
+import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -32,7 +34,8 @@ public class RestApi {
     final public static int METHOD_PUT = 3;
     final public static int METHOD_DELETE = 4;
 
-    final public static String  DOMAIN_NAME = "127.0.0.1";
+//    final public static String  DOMAIN_NAME = "http://0.0.0.0:8000/api";
+    final public static String  DOMAIN_NAME = "http://8tracks.com";
 
 
     String URL = "";
@@ -41,10 +44,10 @@ public class RestApi {
     String crfs = "";
     String token = "";
 
-    ArrayList <NameValuePair> listParams;
-    ArrayList<NameValuePair> headers;
+    ArrayList <NameValuePair> params = new ArrayList<NameValuePair>();
+    ArrayList<NameValuePair> headers = new ArrayList<NameValuePair>();
 
-    String params = "";
+
     String response = "";
 
     int responseCode;
@@ -62,7 +65,8 @@ public class RestApi {
         switch (method) {
 
             case METHOD_GET:
-                onGet();
+//                onGet();
+                response = GET(URL);
                 break;
 
             case METHOD_POST:
@@ -82,15 +86,47 @@ public class RestApi {
 
     }
 
+    public static String GET(String url){
+        InputStream inputStream = null;
+        String result = "";
+        try {
+
+            // create HttpClient
+            HttpClient httpclient = new DefaultHttpClient();
+
+            // make GET request to the given URL
+            HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+
+            // receive response as inputStream
+            inputStream = httpResponse.getEntity().getContent();
+
+            // convert inputstream to string
+            if(inputStream != null)
+                result = convertStreamToString(inputStream);
+            else
+
+                result = "Did not work!";
+
+        } catch (Exception e) {
+            Log.d("InputStream", e.getLocalizedMessage());
+        }
+
+        return result;
+    }
+
+
     public  void onGet() {
 
-        HttpGet request = new HttpGet(this.URL);
 
-        //adding params to header
-        for(NameValuePair h : headers ){
-            request.addHeader(h.getName(),h.getValue());
-        }
-        executeRequest(request,this.URL);
+
+            HttpGet request = new HttpGet(this.URL);
+
+            //adding params to header
+            for (NameValuePair h : headers) {
+                request.addHeader(h.getName(), h.getValue());
+            }
+            executeRequest(request, this.URL);
+
 
     }
 
@@ -100,8 +136,8 @@ public class RestApi {
         for(NameValuePair h : headers ){
             request.addHeader(h.getName(),h.getValue());
         }
-        if(!listParams.isEmpty()){
-            request.setEntity(new UrlEncodedFormEntity(listParams, HTTP.UTF_8));
+        if(!params.isEmpty()){
+            request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
         }
 
         executeRequest(request,this.URL);
@@ -115,8 +151,8 @@ public class RestApi {
         for(NameValuePair h : headers ){
             request.addHeader(h.getName(),h.getValue());
         }
-        if(!listParams.isEmpty()){
-            request.setEntity(new UrlEncodedFormEntity(listParams, HTTP.UTF_8));
+        if(!params.isEmpty()){
+            request.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
         }
 
         executeRequest(request,this.URL);
@@ -133,7 +169,7 @@ public class RestApi {
             request.addHeader(h.getName(),h.getValue());
         }
 
-        executeRequest(request,URL);
+        executeRequest(request, URL);
 
 
     }
@@ -170,18 +206,18 @@ public class RestApi {
     }
 
 
-    public void AddParam(String name, String value)
+    public void addParam(String name, String value)
     {
-        listParams.add(new BasicNameValuePair(name, value));
+        params.add(new BasicNameValuePair(name, value));
     }
 
-    public void AddHeader(String name, String value)
+    public void addHeader(String name, String value)
     {
         headers.add(new BasicNameValuePair(name, value));
     }
 
 
-    private static String convertStreamToString(InputStream is) {
+    public static String convertStreamToString(InputStream is) {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
@@ -203,13 +239,6 @@ public class RestApi {
         return sb.toString();
     }
 
-    public String getParams() {
-        return params;
-    }
-
-    public void setParams(String params) {
-        this.params = params;
-    }
 
     public String getResponse() {
         return response;

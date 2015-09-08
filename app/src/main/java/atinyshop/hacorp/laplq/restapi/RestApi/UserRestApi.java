@@ -5,7 +5,7 @@ package atinyshop.hacorp.laplq.restapi.RestApi;
  */
 public class UserRestApi extends RestApi {
 
-    final public static String DIRECTORY = "User";
+    final public static String DIRECTORY = "user";
 
     public UserRestApi(){
 
