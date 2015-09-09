@@ -65,8 +65,8 @@ public class RestApi {
         switch (method) {
 
             case METHOD_GET:
-//                onGet();
-                response = GET(URL);
+                onGet();
+//                response = GET(URL);
                 break;
 
             case METHOD_POST:
