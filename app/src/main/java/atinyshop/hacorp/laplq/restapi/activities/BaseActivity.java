@@ -5,8 +5,10 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
 
 import atinyshop.hacorp.laplq.restapi.R;
 
@@ -50,25 +52,27 @@ public class BaseActivity extends ActionBarActivity implements AsyncTaskInterfac
     }
 
 
-    public String doInBackground(){
+    public String doBackground(){
 
         return "";
     }
 
-    public void onPostExecute(String result){
-
+    public void onExecute(String result){
+        Log.v("mess", result);
     }
 
     class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
 
-            return doInBackground();
+            return doBackground();
         }
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            onPostExecute(result);
+            onExecute(result);
+
+        
         }
     }
 }

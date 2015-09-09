@@ -18,6 +18,7 @@ import atinyshop.hacorp.laplq.restapi.R;
 import atinyshop.hacorp.laplq.restapi.RestApi.RestApi;
 import atinyshop.hacorp.laplq.restapi.RestApi.TrackRestApi;
 
+
 public class TrackListActivity extends BaseActivity {
     TextView listTracks;
 
@@ -32,7 +33,7 @@ public class TrackListActivity extends BaseActivity {
         }
 
 
-        TextView listTracks = (TextView) findViewById(R.id.list_tracks);
+         listTracks = (TextView) findViewById(R.id.list_tracks);
 
 //        TrackRestApi restApi = new TrackRestApi();
 
@@ -105,7 +106,7 @@ public class TrackListActivity extends BaseActivity {
     }
 
     @Override
-    public String doInBackground() {
+    public String doBackground() {
 
         TrackRestApi restApi = new TrackRestApi();
 
@@ -116,13 +117,18 @@ public class TrackListActivity extends BaseActivity {
             Log.v("except", e.toString());
         }
 
-       return restApi.getResponse();
+        String response = restApi.getResponse();
+        return response;
 
     }
 
     @Override
-    public void onPostExecute(String response) {
+    public void onExecute(String response)
+    {
         listTracks.setText("results: " + response);
+
+//       Log.v("mess",response);
+
     }
 }
 
