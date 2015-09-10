@@ -1,4 +1,4 @@
-package atinyshop.hacorp.laplq.restapi.RestApi;
+package atinyshop.hacorp.laplq.restapi.restapis;
 
 import android.util.Log;
 
@@ -34,8 +34,8 @@ public class RestApi {
     final public static int METHOD_PUT = 3;
     final public static int METHOD_DELETE = 4;
 
-//    final public static String  DOMAIN_NAME = "http://127.0.0.0:8000/api";
-    final public static String  DOMAIN_NAME = "http://8tracks.com";
+    final public static String  DOMAIN_NAME = "http://127.0.0.0:8000/api";
+//    final public static String  DOMAIN_NAME = "http://8tracks.com";
 
 
     String URL = "";

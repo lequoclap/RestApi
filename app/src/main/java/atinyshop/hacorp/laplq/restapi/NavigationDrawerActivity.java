@@ -1,31 +1,25 @@
-package atinyshop.hacorp.laplq.restapi.activities;
+package atinyshop.hacorp.laplq.restapi;
 
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import atinyshop.hacorp.laplq.restapi.R;
-import atinyshop.hacorp.laplq.restapi.restapis.UserRestApi;
 
-public class UserInfoActivity extends BaseActivity {
-
-
+public class NavigationDrawerActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info);
+        setContentView(R.layout.activity_navigation_drawer);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_info, menu);
-
-
-        UserRestApi restApi = new UserRestApi();
-
-
+        getMenuInflater().inflate(R.menu.menu_navigation_drawer, menu);
         return true;
     }
 

@@ -46,7 +46,12 @@ public class BaseActivity extends ActionBarActivity implements AsyncTaskInterfac
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean isConnected(){
+    /*
+    * Check connection
+    *
+    * */
+
+     public boolean isConnected(){
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected())
@@ -56,25 +61,56 @@ public class BaseActivity extends ActionBarActivity implements AsyncTaskInterfac
     }
 
 
-    public String doBackground(){
-
-        return "";
+    @Override
+    public String doGetBackground() {
+        return null;
     }
 
-    public void onExecute(String result){
-        Log.v("mess", result);
+    @Override
+    public void onGetExecute(String result) {
+
     }
 
-    class HttpAsyncTask extends AsyncTask<String, Void, String> {
+    @Override
+    public String doPutBackground() {
+        return null;
+    }
+
+    @Override
+    public void onPutExecute(String result) {
+
+    }
+
+    @Override
+    public String doPostBackground() {
+        return null;
+    }
+
+    @Override
+    public void onPostExecute(String result) {
+
+    }
+
+    @Override
+    public String doDeleteBackground() {
+        return null;
+    }
+
+    @Override
+    public void onDeleteExecute(String result) {
+
+    }
+
+    class HttpGetAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
 
-            return doBackground();
+            return doGetBackground();
         }
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            onExecute(result);
+            onGetExecute(result);
 
         
         }

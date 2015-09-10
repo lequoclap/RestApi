@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-import atinyshop.hacorp.laplq.restapi.RestApi.UserRestApi;
+import atinyshop.hacorp.laplq.restapi.restapis.UserRestApi;
 import atinyshop.hacorp.laplq.restapi.ultis.AppUtil;
 
 

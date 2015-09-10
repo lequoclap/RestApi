@@ -1,4 +1,4 @@
-package atinyshop.hacorp.laplq.restapi.RestApi;
+package atinyshop.hacorp.laplq.restapi.restapis;
 
 /**
  * Created by dimage01 on 2015/09/01.

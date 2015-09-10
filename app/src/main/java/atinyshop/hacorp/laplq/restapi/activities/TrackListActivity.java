@@ -14,8 +14,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.InputStream;
 
 import atinyshop.hacorp.laplq.restapi.R;
-import atinyshop.hacorp.laplq.restapi.RestApi.RestApi;
-import atinyshop.hacorp.laplq.restapi.RestApi.TrackRestApi;
+import atinyshop.hacorp.laplq.restapi.restapis.RestApi;
+import atinyshop.hacorp.laplq.restapi.restapis.TrackRestApi;
 
 
 public class TrackListActivity extends BaseActivity {
@@ -45,7 +45,7 @@ public class TrackListActivity extends BaseActivity {
 
 //        new HttpAsyncTask().execute(restApi.getURL());
 
-        new HttpAsyncTask().execute();
+        new HttpGetAsyncTask().execute();
     }
 
 
@@ -100,7 +100,7 @@ public class TrackListActivity extends BaseActivity {
     }
 
     @Override
-    public String doBackground() {
+    public String doGetBackground() {
 
         TrackRestApi restApi = new TrackRestApi();
 
@@ -117,12 +117,10 @@ public class TrackListActivity extends BaseActivity {
     }
 
     @Override
-    public void onExecute(String response)
+    public void onGetExecute(String response)
     {
         listTracks.setText("results: " + response);
-
-//       Log.v("mess",response);
-
+       Log.v("mess",response);
     }
 }
 

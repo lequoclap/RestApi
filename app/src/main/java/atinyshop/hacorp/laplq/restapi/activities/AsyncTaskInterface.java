@@ -5,9 +5,25 @@ package atinyshop.hacorp.laplq.restapi.activities;
  */
 public interface AsyncTaskInterface {
 
-    public String doBackground();
+    public String doGetBackground();
 
-    public void onExecute(String result);
+    public void onGetExecute(String result);
+
+
+    public String doPutBackground();
+
+    public void onPutExecute(String result);
+
+
+    public String doPostBackground();
+
+    public void onPostExecute(String result);
+
+
+    public String doDeleteBackground();
+
+    public void onDeleteExecute(String result);
+
 
 
 }
