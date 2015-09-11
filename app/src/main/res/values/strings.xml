@@ -14,4 +14,21 @@
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+
+
+    <string name="action_websearch">Web search</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string-array name="menu_array">
+        <item>Profile</item>
+        <item>List Tracks</item>
+        <item>List Artists</item>
+        <item>List Albums</item>
+        <item>List Friends</item>
+        <item>List Products</item>
+        <item>Setting</item>
+        <item>Logout</item>
+    </string-array>
 </resources>
