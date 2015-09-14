@@ -6,8 +6,8 @@ package atinyshop.hacorp.laplq.restapi.restapis;
 public class TrackRestApi extends RestApi {
 
 
-//    final public static String DIRECTORY = "tracks";
-    final public static String DIRECTORY = "NewDjango";
+    final public static String DIRECTORY = "tracks";
+//    final public static String DIRECTORY = "NewDjango";
 
     public TrackRestApi(){
 

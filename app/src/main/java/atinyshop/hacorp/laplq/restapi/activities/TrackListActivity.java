@@ -6,13 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.InputStream;
-
 import atinyshop.hacorp.laplq.restapi.R;
 import atinyshop.hacorp.laplq.restapi.restapis.RestApi;
 import atinyshop.hacorp.laplq.restapi.restapis.TrackRestApi;
@@ -46,34 +39,6 @@ public class TrackListActivity extends BaseActivity {
 //        new HttpAsyncTask().execute(restApi.getURL());
 
         new HttpGetAsyncTask().execute();
-    }
-
-
-    public static String GET(String url) {
-        InputStream inputStream = null;
-        String result = "";
-        try {
-
-            // create HttpClient
-            HttpClient httpclient = new DefaultHttpClient();
-
-            // make GET request to the given URL
-            HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
-
-            // receive response as inputStream
-            inputStream = httpResponse.getEntity().getContent();
-
-            // convert inputstream to string
-            if (inputStream != null)
-                result = RestApi.convertStreamToString(inputStream);
-            else
-                result = "Did not work!";
-
-        } catch (Exception e) {
-            Log.v("InputStream", e.getLocalizedMessage());
-        }
-
-        return result;
     }
 
 

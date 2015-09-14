@@ -1,35 +1,42 @@
 package atinyshop.hacorp.laplq.restapi;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-
-import atinyshop.hacorp.laplq.restapi.restapis.UserRestApi;
-import atinyshop.hacorp.laplq.restapi.ultis.AppUtil;
+import com.rey.material.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
+    Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ctx = this;
+        Button btn = (Button)findViewById(R.id.submit_btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ctx,MyNavigationDrawer.class);
+                startActivity(intent);
+//                Dialog mDialog = new Dialog(ctx);
+
+//                mDialog.applyStyle(R.style.Animation_AppCompat_Dialog)
+//                        .title("Dialog title")
+//                        .positiveAction("OK")
+//                        .negativeAction("CANCEL")
+//                .show();
+            }
+        });
+
     }
 
 

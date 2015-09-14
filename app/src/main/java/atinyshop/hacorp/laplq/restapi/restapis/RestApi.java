@@ -34,8 +34,8 @@ public class RestApi {
     final public static int METHOD_PUT = 3;
     final public static int METHOD_DELETE = 4;
 
-    final public static String  DOMAIN_NAME = "http://172.16.120.121:8000";
-//    final public static String  DOMAIN_NAME = "http://127.0.0.0:8000/api";
+//    final public static String  DOMAIN_NAME = "http://172.16.120.121:8000";
+    final public static String  DOMAIN_NAME = "http://192.168.11.4:8000/api";
 //    final public static String  DOMAIN_NAME = "http://8tracks.com";
 
 
