@@ -17,17 +17,19 @@ public class MyNavigationDrawer extends MaterialNavigationDrawer {
     public void init(Bundle savedInstanceState) {
 
         // set header data
-        setDrawerHeaderImage(R.drawable.earth);
-        setUsername("My App Name");
-        setUserEmail("My version build");
-        //setFirstAccountPhoto(getResources().getDrawable(R.drawable.photo));
+        setDrawerHeaderImage(R.drawable.bg_2);
+        setUsername("LapLQ");
+        setUserEmail("quoclap.hedspi@gmail.com");
+        setFirstAccountPhoto(getResources().getDrawable(R.drawable.user_buckaneer));
+
 
         // create sections
-        this.addSection(newSection("Section 1", new SettingFragment()));
-        this.addSection(newSection("Section 2", new SettingFragment()));
-
+        this.addSection(newSection("Shop", new SettingFragment()));
+        this.addSection(newSection("Album", new SettingFragment()));
+        this.addSection(newSection("Picture", new SettingFragment()));
+        this.addSection(newSection("Setting", new SettingFragment()));
         // create bottom section
-        this.addBottomSection(newSection("Bottom Section",R.drawable.action_search,new Intent(this,TrackListActivity.class)));
+        this.addBottomSection(newSection("Logout",R.drawable.ic_exit_to_app_black_24dp,new Intent(this,TrackListActivity.class)));
 
 
     }
