@@ -4,6 +4,7 @@ import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -24,6 +25,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+
 /**
  * Created by dimage01 on 2015/09/01.
  */
@@ -35,8 +37,8 @@ public class RestApi {
     final public static int METHOD_DELETE = 4;
 
 //    final public static String  DOMAIN_NAME = "http://172.16.120.121:8000";
-    final public static String  DOMAIN_NAME = "http://192.168.11.4:8000/api";
-//    final public static String  DOMAIN_NAME = "http://8tracks.com";
+//    final public static String  DOMAIN_NAME = "http://192.168.11.4:8000/api";
+    final public static String  DOMAIN_NAME = "http://8tracks.com";
 
 
     String URL = "";
@@ -84,34 +86,6 @@ public class RestApi {
                 break;
         }
 
-    }
-
-    public static String GET(String url){
-        InputStream inputStream = null;
-        String result = "";
-        try {
-
-            // create HttpClient
-            HttpClient httpclient = new DefaultHttpClient();
-
-            // make GET request to the given URL
-            HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
-
-            // receive response as inputStream
-            inputStream = httpResponse.getEntity().getContent();
-
-            // convert inputstream to string
-            if(inputStream != null)
-                result = convertStreamToString(inputStream);
-            else
-
-                result = "Did not work!";
-
-        } catch (Exception e) {
-            Log.d("InputStream", e.getLocalizedMessage());
-        }
-
-        return result;
     }
 
 
